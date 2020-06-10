@@ -5,7 +5,12 @@ services:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
+    volumes:
+      - "dev-db-volume:/var/lib/mysql"
     environment:
       MYSQL_ROOT_PASSWORD: example
     ports:
       - 3306:3306
+
+volumes:
+  dev-db-volume:
