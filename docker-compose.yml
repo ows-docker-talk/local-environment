@@ -11,6 +11,8 @@ services:
       MYSQL_ROOT_PASSWORD: example
     ports:
       - 3306:3306
+    networks: 
+      - ows
 
   people-middleware:
     build: ../people-middleware
@@ -18,6 +20,13 @@ services:
       - 3000:3000
     depends_on:
       - mysql
+    networks:
+      - ows
+    environment:
+      ENVIRONMENT: docker
 
 volumes:
   dev-db-volume:
+
+networks:
+  ows:
