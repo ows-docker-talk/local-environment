@@ -25,6 +25,18 @@ services:
     environment:
       ENVIRONMENT: docker
 
+  people-front:
+    build: ../front-people
+    ports:
+      - 80:80
+    depends_on:
+      - people-middleware
+    networks:
+      - ows
+    environment: 
+      ENVIRONMENT: docker
+    
+
 volumes:
   dev-db-volume:
 
